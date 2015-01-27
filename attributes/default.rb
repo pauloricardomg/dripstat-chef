@@ -1,10 +1,3 @@
-dripstat Cookbook
-=======================
-Installs and configure dripstat agent.
-
-# Configuration
-
-```
 # Install Attributes
 
 default['dripstat']['home'] = "/tmp/dripstat"
@@ -28,18 +21,3 @@ default['dripstat']['config']['ignoredExceptions'] = ""
 
 default['dripstat']['agent']['zipname'] = "dripstat_agent-#{node['dripstat']['agent']['version']}.zip"
 default['dripstat']['agent']['url'] = "http://dripstat.com/dl/#{node['dripstat']['agent']['zipname']}"
-```
-
-# Installation
-
-In order to install the agent, add on your machine configuration recipe:
-
-`include_recipe 'dripstat::agent'`
-
-## Jetty Configuration
-
-In order to setup jetty to automatically load the agent, include the following recipe:
-
-`include_recipe 'dripstat::jetty_confing'`
-
-Note that you must install jetty using the jetty community cookbook in order for this to work, otherwise you must manually include the agent in the java_opts of your custom installed jetty.

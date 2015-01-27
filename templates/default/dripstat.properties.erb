@@ -1,0 +1,20 @@
+#the name by which to identify your jvm in the DripStat dashboard
+appName = <%= node['dripstat']['config']['appName'] %>
+
+#your license key
+licenseKey = <%= node['dripstat']['config']['licenseKey'] %>
+
+#can be set to off, trace, debug, info, warn, error, fatal
+logLevel = <%= node['dripstat']['config']['logLevel'] %>
+
+# set this to true to output everything that is sent to dripstat servers. needs logLevel set to atleast 'info'
+auditMode = <%= node['dripstat']['config']['auditMode'] %>
+
+# duration in milliseconds. Any transaction that reaches this threshold will have its trace recorded.
+traceThreshold = <%= node['dripstat']['config']['traceThreshold'] %>
+
+# duration in milliseconds. Any method that reaches this threshold will have its stack trace recorded.
+stackThreshold = <%= node['dripstat']['config']['stackThreshold'] %>
+
+# A list of exception class names that will be ignored when calculating error rate.
+ignoredExceptions = <%= node['dripstat']['config']['ignoredExceptions'] %>
