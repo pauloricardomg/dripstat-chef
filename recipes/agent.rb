@@ -6,15 +6,18 @@ directory node['dripstat']['home'] do
   recursive true
 end
 
-remote_file "#{node['dripstat']['home']}/#{node['dripstat']['agent']['zipname']}" do
-  source node['dripstat']['agent']['url']
+zipname = "dripstat_agent-#{node['dripstat']['agent']['version']}.zip"
+dripstat_zip = "#{node['dripstat']['home']}/#{zipname}"
+
+remote_file dripstat_zip do
+  source "http://dripstat.com/dl/#{zipname}"
   owner node['dripstat']['owner']
   group node['dripstat']['owner']
 end
 
 package "unzip"
 
-execute "unzip -j #{node['dripstat']['agent']['zipname']}" do
+execute "unzip -j #{dripstat_zip}" do
   cwd node['dripstat']['home']
   user node['dripstat']['owner']
   creates "#{node['dripstat']['home']}/dripstat.jar"

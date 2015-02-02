@@ -23,11 +23,6 @@ default['dripstat']['config']['auditMode'] = "false"
 default['dripstat']['config']['traceThreshold'] = 1000
 default['dripstat']['config']['stackThreshold'] = 500
 default['dripstat']['config']['ignoredExceptions'] = ""
-
-# Advanced Attributes
-
-default['dripstat']['agent']['zipname'] = "dripstat_agent-#{node['dripstat']['agent']['version']}.zip"
-default['dripstat']['agent']['url'] = "http://dripstat.com/dl/#{node['dripstat']['agent']['zipname']}"
 ```
 
 # Installation
