@@ -24,8 +24,8 @@ execute "unzip -j #{dripstat_zip}" do
 end
 
 template "#{node['dripstat']['home']}/config.properties" do
-  source  "dripstat.properties.erb"
-  mode    "0644"
+  source  'dripstat.properties.erb'
+  mode    '0644'
   owner   node['dripstat']['owner']
   group   node['dripstat']['owner']
 end
